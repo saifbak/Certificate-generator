@@ -1,23 +1,9 @@
 import { useState } from 'react';
-import html2canvas from 'html2canvas';
 
 function App() {
   const [name, setName] = useState('');
   const [showCertificate, setShowCertificate] = useState(false);
 
-  const handleDownload = async () => {
-    const element = document.getElementById('certificate');
-    if (element) {
-      const canvas = await html2canvas(element, {
-        useCORS: true,
-        scale: 2, // sharper image
-      });
-      const link = document.createElement('a');
-      link.download = `${name}_certificate.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    }
-  };
 
   const handlePrint = () => {
     window.print();
