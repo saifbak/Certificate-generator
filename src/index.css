@@ -68,3 +68,15 @@
     background-size: cover !important;
   }
 }
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-vibes {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}

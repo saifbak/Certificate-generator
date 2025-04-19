@@ -24,24 +24,20 @@ function App() {
           }}
         >
           {/* Logo */}
-          <img
-            src="/logo.png"
-            alt="Logo"
-            className="absolute top-8 left-1/2 transform -translate-x-1/2 w-40 h-auto"
-          />
+         
 
           {/* Title */}
-          <h1 className="absolute top-[25%] w-full text-center text-5xl font-extrabold text-gray-800">
+          <h1 className="absolute top-[29%] w-full text-center text-5xl font-extrabold text-gray-800 font-playfair">
             Certificate of Excellence
           </h1>
 
           {/* Appreciation Sentence */}
-          <p className="absolute top-[38%] w-full text-center text-lg italic text-gray-700 px-8">
+          <p className="absolute top-[38%] w-full text-center text-lg italic text-gray-700 px-8 font-inter ">
             We appreciate your dedication and outstanding achievement!
           </p>
 
           {/* Recipient Name */}
-          <p className="absolute top-[50%] w-full text-center text-4xl font-bold text-blue-900">
+          <p className="absolute top-[50%] w-full text-center text-4xl font-bold text-blue-900 font-vibes">
             {name}
           </p>
 
@@ -51,11 +47,11 @@ function App() {
           </p>
 
           {/* Signature Lines */}
-          <div className="absolute bottom-12 left-16 text-sm text-gray-500">
+          <div className="absolute bottom-[20%] left-20 text-sm text-gray-500">
             <div className="border-t border-gray-400 w-40 mb-1" />
-            Instructor Signature
+            Signature
           </div>
-          <div className="absolute bottom-12 right-16 text-sm text-gray-500">
+          <div className="absolute bottom-[20%] right-20 text-sm text-gray-500">
             <div className="border-t border-gray-400 w-40 mb-1" />
             Date
           </div>
@@ -82,6 +78,11 @@ function App() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-blue-100 px-4">
+       <img
+            src="/logo-ca.png"
+            alt="Logo"
+            className="absolute top-8 left-1/2 transform -translate-x-1/2 w-40 h-auto"
+          />
       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-xl">
         <h2 className="text-2xl font-bold text-center mb-6">Commitment Pledge</h2>
         <p className="text-lg text-gray-800 leading-relaxed">
