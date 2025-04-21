@@ -23,35 +23,29 @@ function App() {
             backgroundImage: "url('/certificate.png')",
           }}
         >
-          {/* Logo */}
-         
-
           {/* Title */}
-          <h1 className="absolute top-[29%] w-full text-center text-5xl font-extrabold text-gray-800 font-playfair">
-            Certificate of Excellence
+          <h1 className="absolute top-[28%] w-full text-center text-5xl font-extrabold text-gray-800 font-playfair">
+            Certificate of Commitment
           </h1>
 
-          {/* Appreciation Sentence */}
-          <p className="absolute top-[38%] w-full text-center text-lg italic text-gray-700 px-8 font-inter ">
-            We appreciate your dedication and outstanding achievement!
-          </p>
-
-          {/* Recipient Name */}
-          <p className="absolute top-[50%] w-full text-center text-4xl font-bold text-blue-900 font-vibes">
-            {name}
-          </p>
-
-          {/* Course Completion Line */}
-          <p className="absolute top-[60%] w-full text-center text-lg text-gray-600">
-            has successfully committed the mission.
-          </p>
+          {/* Commitment Message */}
+          <div className="absolute top-[40%] w-full px-20 text-center text-lg text-gray-700 leading-relaxed">
+            <p>
+              I <span className="text-blue-900 font-semibold text-xl font-vibes">Dr. {name} {' '}</span> have committed to spare no effort to help the 2030 mission through:
+            </p>
+            <ul className="mt-6 text-left list-disc list-inside text-gray-800 font-medium text-lg px-8 italic">
+              <li>Screen high risk population</li>
+              <li>Initiate treatment for eligible patients</li>
+              <li>Elevate awareness among my clinical peers & public</li>
+            </ul>
+          </div>
 
           {/* Signature Lines */}
-          <div className="absolute bottom-[20%] left-20 text-sm text-gray-500">
+          <div className="absolute bottom-[20%] left-16 text-sm text-gray-500">
             <div className="border-t border-gray-400 w-40 mb-1" />
             Signature
           </div>
-          <div className="absolute bottom-[20%] right-20 text-sm text-gray-500">
+          <div className="absolute bottom-[20%] right-16 text-sm text-gray-500">
             <div className="border-t border-gray-400 w-40 mb-1" />
             Date
           </div>
@@ -78,14 +72,9 @@ function App() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-blue-100 px-4">
-       <img
-            src="/logo-ca.png"
-            alt="Logo"
-            className="absolute top-8 left-1/2 transform -translate-x-1/2 w-40 h-auto"
-          />
       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-xl">
         <h2 className="text-2xl font-bold text-center mb-6">Commitment Pledge</h2>
-        <p className="text-lg text-gray-800 leading-relaxed">
+        <p className="text-lg mb-4 text-gray-800">
           I Dr.
           <input
             type="text"
@@ -99,9 +88,9 @@ function App() {
               }
             }}
           />
-          have committed to spare no effort to help 2030 mission through:
+          have committed to spare no effort to help the 2030 mission.
         </p>
-        <ul className="list-disc list-inside text-gray-700 my-4 ml-4">
+        <ul className="list-disc list-inside text-gray-700 mb-6">
           <li>Screen high risk population</li>
           <li>Initiate treatment for eligible patients</li>
           <li>Elevate awareness among my clinical peers & public</li>
