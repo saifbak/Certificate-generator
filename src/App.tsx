@@ -5,7 +5,12 @@ function App() {
   const [showCertificate, setShowCertificate] = useState(false);
 
   const handlePrint = () => {
+    const previousTitle = document.title;
+    document.title = 'Certificate_of_Hepatitis_Elimination';
     window.print();
+    setTimeout(() => {
+      document.title = previousTitle;
+    }, 1000);
   };
 
   const handleBack = () => {
@@ -23,12 +28,6 @@ function App() {
             backgroundImage: "url('/certificate_original.png')",
           }}
         >
-          {/* Title */}
-          {/* <h1 className="absolute top-[15%] -left-28 w-full text-center text-6xl font-extrabold text-[#c41f3e] font-proxima-bold uppercase">
-            committed for <br /> viral hepatitis
-          </h1> */}
-
-
           <div className=' absolute top-[26%] left-[2%] px-5 md:px-10 items-center justify-center'>
             <div className='flex flex-row  mt-10 md:mt-15 items-center '>
               <h2 className="text-left mr-1 ml-3 md:text-center text-xl font-semibold mb-3 text-gray-800 tracking-wide font-myriad">
@@ -36,7 +35,7 @@ function App() {
               </h2>
               <div className="flex items-center text-[#c41f3e] font-myriad text-xl">
                 <div className="flex-1 overflow-hidden whitespace-nowrap before:content-['...............................................................................................................................'] before:block before:text-ellipsis before:overflow-hidden before:leading-none" />
-                {' '}{ name}
+                {' '}{name}
               </div>
             </div>
             <p className="text-xl text-gray-800 mb-5 font-myriad">
@@ -50,26 +49,6 @@ function App() {
             <img src="/certificate_graph.png" alt="signature" className='w-[20rem] h-[18rem] object-contain ml-[30%] -mt-10 no-print' />
 
           </div>
-
-          {/* Commitment Message */}
-          {/* <div className="absolute top-[35%] w-[200px] right-50 px-12  text-[#c41f3e] bg-white-800 leading-relaxed"> */}
-
-          {/* ({name}) */}
-          {/* <div className="flex items-center text-[#c41f3e] font-myriad text-md lg:text-[30px]">
-              </div> */}
-
-          {/* <p>
-              <span className="text-blue-900 font-semibold text-xl font-vibes">
-                I Dr. {name}{" "}
-              </span>
-              have committed to spare no effort to help the 2030 mission through:
-            </p> */}
-          {/* <ul className="mt-6 text-left list-disc list-inside text-gray-800 font-medium text-lg px-8 italic">
-              <li>Screen high risk population</li>
-              <li>Initiate treatment for eligible patients</li>
-              <li>Elevate awareness among my clinical peers & public</li>
-            </ul> */}
-          {/* </div> */}
         </div>
 
         {/* Buttons */}
