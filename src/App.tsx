@@ -18,54 +18,71 @@ function App() {
   };
 
   if (showCertificate) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100  print:bg-white print:min-h-0 print:h-auto print:w-auto">
-        {/* CERTIFICATE */}
-        <div
-          id="certificate"
-          className="relative w-[1122px] h-[793px] bg-no-repeat bg-contain bg-center bg-white shadow-lg border border-gray-300 print:shadow-none print:border-none print:scale-[1] print:w-[1122px] print:h-[793px]"
-          style={{
-            backgroundImage: "url('/certificate_original.png')",
-          }}
-        >
-          <div className=' absolute top-[26%] left-[2%] px-5 md:px-10 items-center justify-center'>
-            <div className='flex flex-row  mt-10 md:mt-15 items-center '>
-              <h2 className="text-left mr-1 ml-3 md:text-center text-xl font-semibold mb-3 text-gray-800 tracking-wide font-myriad">
-                I, Dr. <span className='text-[#c41f3e] font-myriad text-xl uppercase'>{name}</span>
-              </h2>
-            </div>
-            <p className="text-xl text-gray-800 mb-5 font-myriad no-print">
-              have committed to duly and dutifully put in the efforts that will take to get to 2030 goal.
-            </p>
-            <ul className="text-lg text-[#c41f3e] list-disc list-inside mb-5 px-10 leading-loose font-myriad -space-y-3 no-print">
-              <li>Screen high risk population</li>
-              <li>Initiate treatment for eligible patients</li>
-              <li>Elevate awareness among my clinical peers & public</li>
-            </ul>
-            <img src="/certificate_graph.png" alt="signature" className='w-[20rem] h-[18rem] object-contain ml-[30%] -mt-10 no-print' />
 
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 print:bg-white print:min-h-0 print:h-auto print:w-auto">
+        {/* VISIBLE ONLY IN PRINT */}
+        {/* <div className="hidden print:block text-black font-myriad text-xl p-8">
+          <h2 className="text-left font-semibold text-gray-800 tracking-wide">
+            I, Dr. <span className='text-[#c41f3e] uppercase'>{name}</span>
+          </h2>
+        </div> */}
+
+        <div className='hidden print:block absolute top-[26%] left-[2%] px-5 md:px-10'>
+          <div className='flex flex-row mt-10 md:mt-15 items-center'>
+            <h2 className="text-left mr-1 ml-3 md:text-center text-xl font-semibold mb-3 text-gray-800 tracking-wide font-myriad">
+              I, Dr. <span className='text-[#c41f3e] font-myriad text-xl uppercase'>{name}</span>
+            </h2>
           </div>
         </div>
 
-        {/* Buttons */}
-        <div className="mt-6 flex gap-4 no-print">
-          <button
-            onClick={handleBack}
-            className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600 transition"
+        {/* VISIBLE ONLY ON SCREEN */}
+        <div className="print:hidden flex flex-col items-center">
+          <div
+            id="certificate"
+            className="relative w-[1122px] h-[793px] bg-no-repeat bg-contain bg-center bg-white shadow-lg border border-gray-300"
+            style={{
+              backgroundImage: "url('/certificate_original.png')",
+            }}
           >
-            Back
-          </button>
-          <button
-            onClick={handlePrint}
-            className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-[#c41f3e] transition"
-          >
-            Print
-          </button>
+            <div className='absolute top-[26%] left-[2%] px-5 md:px-10'>
+              <div className='flex flex-row mt-10 md:mt-15 items-center'>
+                <h2 className="text-left mr-1 ml-3 md:text-center text-xl font-semibold mb-3 text-gray-800 tracking-wide font-myriad">
+                  I, Dr. <span className='text-[#c41f3e] font-myriad text-xl uppercase'>{name}</span>
+                </h2>
+              </div>
+              <p className="text-xl text-gray-800 mb-5 font-myriad">
+                have committed to duly and dutifully put in the efforts that will take to get to 2030 goal.
+              </p>
+              <ul className="text-lg text-[#c41f3e] list-disc list-inside mb-5 px-10 leading-loose font-myriad -space-y-3">
+                <li>Screen high risk population</li>
+                <li>Initiate treatment for eligible patients</li>
+                <li>Elevate awareness among my clinical peers & public</li>
+              </ul>
+              <img src="/certificate_graph.png" alt="signature" className='w-[20rem] h-[18rem] object-contain ml-[30%] -mt-10' />
+            </div>
+          </div>
+
+          {/* Buttons */}
+          <div className="mt-6 flex gap-4">
+            <button
+              onClick={handleBack}
+              className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600 transition"
+            >
+              Back
+            </button>
+            <button
+              onClick={handlePrint}
+              className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-[#c41f3e] transition"
+            >
+              Print
+            </button>
+          </div>
         </div>
       </div>
-
     );
   }
+
 
   return (
     <div className={`flex flex-col w-screen h-screen bg-[url('/gilead_bg.jpg')] bg-fixed bg-cover bg-center`}>
@@ -84,19 +101,19 @@ function App() {
           <div className='flex flex-row  mt-10 md:mt-15 items-center justify-start'>
             <h2 className="text-left mr-1 md:text-center self-start text-xl md:text-[30px] font-semibold mb-3 text-gray-800 tracking-wide font-myriad">
               I, Dr. <span className='text-[#c41f3e] font-myriad text-lg md:text-[30px] lg:text-[30px]'>(
-              <input
-                type="text"
-                className="ml-2  bg-transparent focus:outline-none focus:border-[#c41f3e] w-28 md:w-40 lg:w-55"
-                placeholder="Enter Your Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' && name.trim()) {
-                    setShowCertificate(true);
-                  }
-                }}
-              />
-              ),</span>
+                <input
+                  type="text"
+                  className="ml-2  bg-transparent focus:outline-none focus:border-[#c41f3e] w-28 md:w-40 lg:w-55"
+                  placeholder="Enter Your Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && name.trim()) {
+                      setShowCertificate(true);
+                    }
+                  }}
+                />
+                ),</span>
             </h2>
           </div>
           <p className="text-center text-xl md:text-[30px] text-gray-700 mb-10 font-myriad">
