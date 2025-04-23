@@ -14,41 +14,62 @@ function App() {
 
   if (showCertificate) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-blue-100 p-4 print:bg-white">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100  print:bg-white print:min-h-0 print:h-auto print:w-auto">
         {/* CERTIFICATE */}
         <div
           id="certificate"
-          className="relative w-[1100px] h-[850px] bg-no-repeat bg-contain bg-center bg-white shadow-lg border border-gray-300"
+          className="relative w-[1122px] h-[793px] bg-no-repeat bg-contain bg-center bg-white shadow-lg border border-gray-300 print:shadow-none print:border-none print:scale-[1] print:w-[1122px] print:h-[793px]"
           style={{
-            backgroundImage: "url('/certificate.png')",
+            backgroundImage: "url('/certificate_original.png')",
           }}
         >
           {/* Title */}
-          <h1 className="absolute top-[28%] w-full text-center text-5xl font-extrabold text-gray-800 font-playfair">
-            Certificate of Commitment
-          </h1>
+          {/* <h1 className="absolute top-[15%] -left-28 w-full text-center text-6xl font-extrabold text-[#c41f3e] font-proxima-bold uppercase">
+            committed for <br /> viral hepatitis
+          </h1> */}
 
-          {/* Commitment Message */}
-          <div className="absolute top-[40%] w-full px-20 text-center text-lg text-gray-700 leading-relaxed">
-            <p>
-              I <span className="text-blue-900 font-semibold text-xl font-vibes">Dr. {name} {' '}</span> have committed to spare no effort to help the 2030 mission through:
+
+          <div className=' absolute top-[26%] left-[2%] px-5 md:px-10 items-center justify-center'>
+            <div className='flex flex-row  mt-10 md:mt-15 items-center '>
+              <h2 className="text-left mr-1 ml-3 md:text-center text-xl font-semibold mb-3 text-gray-800 tracking-wide font-myriad">
+                I, Dr.
+              </h2>
+              <div className="flex items-center text-[#c41f3e] font-myriad text-xl">
+                <div className="flex-1 overflow-hidden whitespace-nowrap before:content-['...............................................................................................................................'] before:block before:text-ellipsis before:overflow-hidden before:leading-none" />
+                {' '}{ name}
+              </div>
+            </div>
+            <p className="text-xl text-gray-800 mb-5 font-myriad">
+              have committed to duly and dutifully put in the efforts that will take to get to 2030 goal.
             </p>
-            <ul className="mt-6 text-left list-disc list-inside text-gray-800 font-medium text-lg px-8 italic">
+            <ul className="text-lg text-[#c41f3e] list-disc list-inside mb-5 px-10 leading-loose font-myriad -space-y-3 no-print">
               <li>Screen high risk population</li>
               <li>Initiate treatment for eligible patients</li>
               <li>Elevate awareness among my clinical peers & public</li>
             </ul>
+            <img src="/certificate_graph.png" alt="signature" className='w-[20rem] h-[18rem] object-contain ml-[30%] -mt-10 no-print' />
+
           </div>
 
-          {/* Signature Lines */}
-          <div className="absolute bottom-[20%] left-16 text-sm text-gray-500">
-            <div className="border-t border-gray-400 w-40 mb-1" />
-            Signature
-          </div>
-          <div className="absolute bottom-[20%] right-16 text-sm text-gray-500">
-            <div className="border-t border-gray-400 w-40 mb-1" />
-            Date
-          </div>
+          {/* Commitment Message */}
+          {/* <div className="absolute top-[35%] w-[200px] right-50 px-12  text-[#c41f3e] bg-white-800 leading-relaxed"> */}
+
+          {/* ({name}) */}
+          {/* <div className="flex items-center text-[#c41f3e] font-myriad text-md lg:text-[30px]">
+              </div> */}
+
+          {/* <p>
+              <span className="text-blue-900 font-semibold text-xl font-vibes">
+                I Dr. {name}{" "}
+              </span>
+              have committed to spare no effort to help the 2030 mission through:
+            </p> */}
+          {/* <ul className="mt-6 text-left list-disc list-inside text-gray-800 font-medium text-lg px-8 italic">
+              <li>Screen high risk population</li>
+              <li>Initiate treatment for eligible patients</li>
+              <li>Elevate awareness among my clinical peers & public</li>
+            </ul> */}
+          {/* </div> */}
         </div>
 
         {/* Buttons */}
@@ -61,47 +82,83 @@ function App() {
           </button>
           <button
             onClick={handlePrint}
-            className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition"
+            className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-[#c41f3e] transition"
           >
             Print
           </button>
         </div>
       </div>
+
     );
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-blue-100 px-4">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-xl">
-        <h2 className="text-2xl font-bold text-center mb-6">Commitment Pledge</h2>
-        <p className="text-lg mb-4 text-gray-800">
-          I Dr.
-          <input
-            type="text"
-            className="border-b-2 border-blue-500 focus:outline-none focus:border-blue-700 mx-2 px-2 w-2/3"
-            placeholder="Enter your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' && name.trim()) {
-                setShowCertificate(true);
-              }
-            }}
-          />
-          have committed to spare no effort to help the 2030 mission.
-        </p>
-        <ul className="list-disc list-inside text-gray-700 mb-6">
-          <li>Screen high risk population</li>
-          <li>Initiate treatment for eligible patients</li>
-          <li>Elevate awareness among my clinical peers & public</li>
-        </ul>
-        <button
-          className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+    <div className={`flex flex-col w-screen h-screen bg-[url('/gilead_bg.jpg')] bg-fixed bg-cover bg-center`}>
+
+      {/* Header */}
+      <div className='flex flex-row justify-between w-full h-1/5 bg-white-600 mt-10'>
+        <div className='flex w-full md:w-1/2 bg-[#c41f3e] h-28 self-end mb-5 items-center pl-5  '>
+          <span className='text-white font-myriad text-2xl xl:text-4xl font-bold uppercase'>
+            Viral Hepatitis Elimination Commitment
+          </span>
+        </div>
+      </div>
+      {/* Body */}
+      <div className='flex flex-col w-full h-4/6  items-start md:items-center bg-white '>
+        <div className='px-5 md:px-10'>
+          <div className='flex flex-row  mt-10 md:mt-15 items-center justify-center'>
+            <h2 className="text-left mr-1 md:text-center text-xl md:text-[30px] font-semibold mb-3 text-gray-800 tracking-wide font-myriad">
+              I, Dr.
+            </h2>
+            <div className="flex items-center text-[#c41f3e] font-myriad text-lg md:text-[30px] lg:text-[30px]">
+              <div className="flex-1 overflow-hidden whitespace-nowrap before:content-['.............................................................................................................................................'] before:block before:text-ellipsis before:overflow-hidden before:leading-none" />
+              (
+              <input
+                type="text"
+                className="ml-2  bg-transparent focus:outline-none focus:border-[#c41f3e] w-28 md:w-40 lg:w-55"
+                placeholder="Enter Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && name.trim()) {
+                    setShowCertificate(true);
+                  }
+                }}
+              />
+              )
+            </div>
+
+          </div>
+          <p className="text-center text-xl md:text-[30px] text-gray-700 mb-10 font-myriad">
+            have committed to duly and dutifully put in the efforts that will take to get to 2030 goal.
+          </p>
+          <ul className="text-xl md:text-[30px] text-[#c41f3e] list-disc list-inside mb-5 px-10 leading-loose font-myriad -space-y-5">
+            <li>Screen high risk population</li>
+            <li>Initiate treatment for eligible patients</li>
+            <li>Elevate awareness among my clinical peers & public</li>
+          </ul>
+
+        </div>
+        <button className={`${name.trim() ? 'bg-[#c41f3e] ' : 'bg-gray-400'} text-white self-center font-myriad text-xl md:text-[24px] font-myriad font-bold uppercase px-10 py-1 mt-15 md:mt-5 rounded-lg cursor-pointer`}
           onClick={() => name.trim() && setShowCertificate(true)}
         >
-          Generate Certificate
+          I AM COMMITTED
         </button>
+        <div className=" text-xs text-gray-500 px-10 mt-10">
+          <p className="mt-5 mb-2 font-myriad text-xs">ME-UNB-1113 | Prepared April 2025</p>
+          <h1 className='font-normal font-myriad text-xs'>Disclaimer:</h1>
+          <p className='font-myriad text-xs'>
+            If you have medical questions related to any of Gilead's products or therapeutic areas,
+            please email askGileadME@gilead.com. Reporting suspected adverse reactions of medicinal product is important.
+            It allows continued monitoring of the benefit/risk balance of the medicinal product. Healthcare professionals
+            and patients are asked to report any suspected adverse reactions via the national reporting schemes as applicable.
+            For KSA: 19999 or npc.drug@sfda.gov.sa. For Kuwait: drugsafety@warbamed.com
+          </p>
+
+        </div>
       </div>
+      {/* Footer */}
+      <div className='flex w-full h-1/6' />
     </div>
   );
 }
