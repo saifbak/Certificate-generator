@@ -6,7 +6,7 @@ function App() {
 
   const handlePrint = () => {
     const previousTitle = document.title;
-    document.title = 'Certificate_of_Hepatitis_Elimination';
+    document.title = 'Certificate_of_Viral_Hepatitis_Elimination';
     window.print();
     setTimeout(() => {
       document.title = previousTitle;
@@ -31,14 +31,10 @@ function App() {
           <div className=' absolute top-[26%] left-[2%] px-5 md:px-10 items-center justify-center'>
             <div className='flex flex-row  mt-10 md:mt-15 items-center '>
               <h2 className="text-left mr-1 ml-3 md:text-center text-xl font-semibold mb-3 text-gray-800 tracking-wide font-myriad">
-                I, Dr.
+                I, Dr. <span className='text-[#c41f3e] font-myriad text-xl uppercase'>{name}</span>
               </h2>
-              <div className="flex items-center text-[#c41f3e] font-myriad text-xl">
-                <div className="flex-1 overflow-hidden whitespace-nowrap before:content-['...............................................................................................................................'] before:block before:text-ellipsis before:overflow-hidden before:leading-none" />
-                {' '}{name}
-              </div>
             </div>
-            <p className="text-xl text-gray-800 mb-5 font-myriad">
+            <p className="text-xl text-gray-800 mb-5 font-myriad no-print">
               have committed to duly and dutifully put in the efforts that will take to get to 2030 goal.
             </p>
             <ul className="text-lg text-[#c41f3e] list-disc list-inside mb-5 px-10 leading-loose font-myriad -space-y-3 no-print">
@@ -85,13 +81,9 @@ function App() {
       {/* Body */}
       <div className='flex flex-col w-full h-4/6  items-start md:items-center bg-white '>
         <div className='px-5 md:px-10'>
-          <div className='flex flex-row  mt-10 md:mt-15 items-center justify-center'>
-            <h2 className="text-left mr-1 md:text-center text-xl md:text-[30px] font-semibold mb-3 text-gray-800 tracking-wide font-myriad">
-              I, Dr.
-            </h2>
-            <div className="flex items-center text-[#c41f3e] font-myriad text-lg md:text-[30px] lg:text-[30px]">
-              <div className="flex-1 overflow-hidden whitespace-nowrap before:content-['.............................................................................................................................................'] before:block before:text-ellipsis before:overflow-hidden before:leading-none" />
-              (
+          <div className='flex flex-row  mt-10 md:mt-15 items-center justify-start'>
+            <h2 className="text-left mr-1 md:text-center self-start text-xl md:text-[30px] font-semibold mb-3 text-gray-800 tracking-wide font-myriad">
+              I, Dr. <span className='text-[#c41f3e] font-myriad text-lg md:text-[30px] lg:text-[30px]'>(
               <input
                 type="text"
                 className="ml-2  bg-transparent focus:outline-none focus:border-[#c41f3e] w-28 md:w-40 lg:w-55"
@@ -104,9 +96,8 @@ function App() {
                   }
                 }}
               />
-              )
-            </div>
-
+              ),</span>
+            </h2>
           </div>
           <p className="text-center text-xl md:text-[30px] text-gray-700 mb-10 font-myriad">
             have committed to duly and dutifully put in the efforts that will take to get to 2030 goal.
