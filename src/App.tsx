@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import useFetch from './services/useFetch';
 
 function App() {
   const [name, setName] = useState('');
   const [showCertificate, setShowCertificate] = useState(false);
+
+  const { saveUserToSheet, loading } = useFetch();
 
   const handlePrint = () => {
     const previousTitle = document.title;
@@ -126,10 +129,27 @@ function App() {
           </ul>
 
         </div>
-        <button className={`${name.trim() ? 'bg-[#c41f3e] ' : 'bg-gray-400'} text-white self-center font-myriad text-xl md:text-[24px] font-myriad font-bold uppercase px-10 py-1 mt-15 md:mt-5 rounded-lg cursor-pointer`}
-          onClick={() => name.trim() && setShowCertificate(true)}
+        <button 
+          className={`${name.trim() ? 'bg-[#c41f3e] ' : 'bg-gray-400'} text-white self-center font-myriad text-xl md:text-[24px] font-myriad font-bold uppercase px-10 py-1 mt-15 md:mt-5 rounded-lg cursor-pointer flex items-center gap-2`}
+          onClick={async () => {
+            if(name.trim()) {
+              await saveUserToSheet(name.trim())
+              setTimeout(() => {
+              
+                setShowCertificate(true)
+              }, 1000)
+            }
+          }}
+          disabled={loading}
         >
-          I AM COMMITTED
+          {loading ? (
+            <>
+              <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white"></div>
+              LOADING...
+            </>
+          ) : (
+            'I AM COMMITTED'
+          )}
         </button>
         <div className=" text-xs text-gray-500 px-10 mt-10">
           <p className="mt-5 mb-2 font-myriad text-xs">ME-UNB-1113 | Prepared April 2025</p>
